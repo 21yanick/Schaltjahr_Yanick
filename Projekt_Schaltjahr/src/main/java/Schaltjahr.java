@@ -18,21 +18,9 @@ public class Schaltjahr {
     }
 
     public static boolean isSchaltjahr(int year) {
-        if (year % 4 == 0) {
-            if (year % 100 == 0) {
-                if (year % 400 == 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else {
-                return true;
-            }
-        } else {
-            return false;
-        }
+        return year % 4 == 0 && ( !isJahrhundert(year) || year % 400 == 0 );
     }
-
+    
     public static boolean isJahrhundert(int year) {
         return year % 100 == 0;
     }
